@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input {
+  border: solid 1px;
+  padding: 5px;
+  border-radius: 3px;
+
+  margin-top: 3px;
+}
+
+input:focus {
+  background-color: transparent;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
