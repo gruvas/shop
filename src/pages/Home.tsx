@@ -14,6 +14,7 @@ import Pagination from '../components/Pagination/Pagination';
 import { fetchPizza } from '../redux/slices/pizzaSlice';
 import { IState } from '../@types/interface';
 import { sortList } from '../assets/constData/sortList';
+import Header from '../components/Header';
 
 
 
@@ -101,39 +102,44 @@ const Home: React.FC = () => {
     })
 
     return (
-        <div>
-            <div className="content__top">
-                
-                <Categories value={categoryId} onClickCategory={(id) => onChangeCategory(id)}/>
-                <Sort/>
+        <div className="wrapper">
+            <Header/>
 
+            <div className="content">
+                <div className="container">
+                    <div className="content__top">
+                        <Categories value={categoryId} onClickCategory={(id) => onChangeCategory(id)}/>
+                        <Sort/>
+                    </div>
 
-            </div>
-            <h2 className="content__title">Все пиццы</h2>
-            {status === 'loading' ? (
-                <div className="content__items" key={'skeleton0'}>
-                    <Skeleton/>
-                    <Skeleton/>
-                    <Skeleton/>
-                    <Skeleton/>
-                    <Skeleton/>
+                    <h2 className="content__title">Все пиццы</h2>
+                    
+                    {status === 'loading' ? (
+                        <div className="content__items" key={'skeleton0'}>
+                            <Skeleton/>
+                            <Skeleton/>
+                            <Skeleton/>
+                            <Skeleton/>
+                            <Skeleton/>
+                        </div>
+                    ) : (
+                        <>
+                            {
+                                status === 'success' ? (
+                                    <div className="content__items">
+                                        {pizzas}
+                                    </div>
+                                ) : (
+                                    <h1 className='error_text'>Возникла ошибка попробуйте позже</h1>
+                                )
+                            }
+                        </>
+                        
+                    )}
+
+                    <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
                 </div>
-            ) : (
-                <>
-                    {
-                        status === 'success' ? (
-                            <div className="content__items">
-                                {pizzas}
-                            </div>
-                        ) : (
-                            <h1 className='error_text'>Возникла ошибка попробуйте позже</h1>
-                        )
-                    }
-                </>
-                
-            )}
-
-            <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
+            </div>
         </div>
     );
 }

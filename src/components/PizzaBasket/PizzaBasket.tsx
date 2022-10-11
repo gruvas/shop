@@ -4,7 +4,7 @@ import { IPizzaBasketProps } from '../../@types/interface';
 import { removeItem } from '../../redux/slices/cartSlice'
 
 
-const PizzaBasket: React.FC<IPizzaBasketProps> = ({ id_unique, price_obj, size, title, type}) => {
+const PizzaBasket: React.FC<IPizzaBasketProps> = ({ id_unique, imageUrl, price_obj, size, title, type}) => {
     const dispatch = useDispatch()
 
     const remove = () => {
@@ -24,7 +24,7 @@ const PizzaBasket: React.FC<IPizzaBasketProps> = ({ id_unique, price_obj, size, 
                         <div className="cart__item-img">
                             <img
                                 className="pizza-block__image"
-                                src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+                                src={imageUrl}
                                 alt="Pizza"
                             />
                         </div>
