@@ -12,7 +12,7 @@ const Categories: React.FC<ICategoriesProps> = ({ value, onClickCategory }) => {
 	]
 
 	return (
-		<div className='categories'>
+		<nav className='categories'>
 			<ul>
 				{categories.map((сategory, index) => {
 					return (
@@ -26,7 +26,7 @@ const Categories: React.FC<ICategoriesProps> = ({ value, onClickCategory }) => {
 					)
 				})}
 			</ul>
-		</div>
+		</nav>
 	)
 }
 

@@ -40,18 +40,19 @@ const Home: React.FC = () => {
 	}
 
 	const getPizzas = async () => {
-        const order = sortType.includes('-') ? 'desc' : 'asc'
-        const sortBy = sortType.replace('-', '')
-        const category = categoryId > 0 ? `category=${categoryId}` : ''
+		const order = sortType.includes('-') ? 'desc' : 'asc'
+		const sortBy = sortType.replace('-', '')
+		const category = categoryId > 0 ? `category=${categoryId}` : ''
 
-        // @ts-ignore
-        dispatch(fetchPizza({
-            currentPage,
-            category,
-            sortBy,
-            order
-        }))
-    }
+		// @ts-ignore
+		dispatch(fetchPizza({
+				currentPage,
+				category,
+				sortBy,
+				order,
+			})
+		)
+	}
 
 	React.useEffect(() => {
 		window.scrollTo(0, 0)
@@ -97,7 +98,7 @@ const Home: React.FC = () => {
 			if (obj.title?.toLowerCase().includes(searchValue.toLowerCase())) {
 				return true
 			}
-            return false
+			return false
 		})
 		.map((obj) => {
 			return (
@@ -122,33 +123,37 @@ const Home: React.FC = () => {
 						<Sort />
 					</div>
 
-					<h2 className='content__title'>Все пиццы</h2>
+					<section>
+						<h2 className='content__title'>Все пиццы</h2>
 
-					{status === 'loading' ? (
-						<div
-							className='content__items'
-							key={'skeleton0'}
-						>
-							<Skeleton />
-							<Skeleton />
-							<Skeleton />
-							<Skeleton />
-							<Skeleton />
-						</div>
-					) : (
-						<>
-							{status === 'success' ? (
-								<div className='content__items'>{pizzas}</div>
-							) : (
-								<h1 className='error_text'>Возникла ошибка попробуйте позже</h1>
-							)}
-						</>
-					)}
+						{status === 'loading' ? (
+							<div
+								className='content__items'
+								key={'skeleton0'}
+							>
+								<Skeleton />
+								<Skeleton />
+								<Skeleton />
+								<Skeleton />
+								<Skeleton />
+							</div>
+						) : (
+							<>
+								{status === 'success' ? (
+									<div className='content__items'>{pizzas}</div>
+								) : (
+									<h1 className='error_text'>
+										Возникла ошибка попробуйте позже
+									</h1>
+								)}
+							</>
+						)}
 
-					<Pagination
-						currentPage={currentPage}
-						onChangePage={onChangePage}
-					/>
+						<Pagination
+							currentPage={currentPage}
+							onChangePage={onChangePage}
+						/>
+					</section>
 				</div>
 			</div>
 		</div>

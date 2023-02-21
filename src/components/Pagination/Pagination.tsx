@@ -10,7 +10,7 @@ const Pagination: React.FC<IPaginationProps> = ({
 	onChangePage,
 }) => {
 	return (
-		<div>
+		<footer>
 			<ReactPaginate
 				className={styles.root}
 				breakLabel='...'
@@ -22,7 +22,7 @@ const Pagination: React.FC<IPaginationProps> = ({
 				forcePage={currentPage - 1}
 				renderOnZeroPageCount={null}
 			/>
-		</div>
+		</footer>
 	)
 }
 

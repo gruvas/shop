@@ -18,7 +18,7 @@ const Header: React.FC = () => {
 	const pizza_page_checker = pizza_page_vakidation(location.pathname)
 
 	return (
-		<div className='header'>
+		<header className='header'>
 			<div className='container'>
 				<Link to='/'>
 					<div className='header__logo'>
@@ -76,7 +76,7 @@ const Header: React.FC = () => {
 					</Link>
 				</div>
 			</div>
-		</div>
+		</header>
 	)
 }
 
