@@ -97,6 +97,7 @@ const Home: React.FC = () => {
 			if (obj.title?.toLowerCase().includes(searchValue.toLowerCase())) {
 				return true
 			}
+            return false
 		})
 		.map((obj) => {
 			return (
